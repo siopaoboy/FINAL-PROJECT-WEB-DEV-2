@@ -20,8 +20,6 @@
         
         	$statement->bindValue(':username', $username);
         	$statement->bindValue(':password', $hash);
-
-        	echo $hash;
         
         	try {
         		$statement->execute();
