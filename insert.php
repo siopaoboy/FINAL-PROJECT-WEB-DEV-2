@@ -21,7 +21,7 @@
 	<?= include('nav.php'); ?> <br>
 
 	<div class="boba">
-	<h2><u>Welcome to MANGAKOPIA</u></h2> <br>
+		<h2><u>Welcome to MANGAKOPIA</u></h2> <br>
 		<p>We are here to  </p>
 	</div>
 </body>
