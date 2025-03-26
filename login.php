@@ -2,6 +2,8 @@
 	
 	require('connect.php');
 
+	$message = "";
+
 	session_start();
 
 	if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -9,27 +11,40 @@
 		$user = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$pass = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
+		if (empty($user) || empty($pass)) {
+
+			$message = "Please enter both username and password";
+
+		} else {
+
 		$login = "SELECT username, password FROM users WHERE username = :username";
 		$statement = $db->prepare($login);
 		$statement->bindValue(':username', $user);
 		$statement->execute();
 
-		if ($statement->rowCount() > 0) {
-			$row = $statement->fetch();
-			echo $row['password'];
-			echo "<br>";
-			$hash = password_hash($pass, PASSWORD_DEFAULT);
+			if ($statement->rowCount() > 0) {
 
-			if(password_verify($pass, $row['password'])){
-			// echo $statement[0];
-			// $urnm$_SESSION['username'];
-			// setcookie('username', $usrnm, time() + 600); 	//still in progress
-				$message = "Login Successful!";
+				$row = $statement->fetch();
+
+				$hash = password_hash($pass, PASSWORD_DEFAULT);
+
+				if(password_verify($pass, $hash)){
+
+					$session = $_SESSION['username'];
+
+					setcookie('username', $session, time() + 300);
+					$message = "Login Successful!";
+
+					header("Location: insert.php");
+					exit();
+
+				} else {
+					$message = "Wrong password";
+				}
+
 			} else {
-				$message = "Wrong password";
+				$message = "Username and Password is invalid. Please try again.";
 			}
-		} else {
-			$message = "Username and Password is invalid. Please try again.";
 		}
 	}
 ?>

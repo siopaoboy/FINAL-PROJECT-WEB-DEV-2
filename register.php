@@ -7,7 +7,6 @@
 		$username = filter_input(INPUT_POST, 'usernameRegister', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$password = filter_input(INPUT_POST, 'passwordRegister', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 		$reenter = filter_input(INPUT_POST, 'passwordConfirmation', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-		$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
 
 		if ($password === $reenter) {
