@@ -20,7 +20,7 @@
 	<a href="register.php">Become a MANGAKOPIA Member!</a> <br>
 	<?= include('nav.php'); ?> <br>
 
-	<div class="boba">
+	<div class="manga">
 		<h2><u>Welcome to MANGAKOPIA</u></h2> <br>
 		<p>We are here to  </p>
 	</div>

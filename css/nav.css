@@ -1,0 +1,33 @@
+.body {
+	background: #ebd6ef;
+}
+
+.body h1 {
+	text-align: center;
+	font-family: cool;
+}
+
+.nav ul{
+	list-style-type: none;
+}
+
+.nav li {
+	display: inline-block;
+}
+
+.nav li a {
+	color: black;
+	padding: 0 30px;
+	text-duration: none;
+	display: flex;
+	align-items: center;
+}
+
+/*.nav li:first-child {
+	margin-right: auto;
+}*/
+
+.nav a:hover {
+	background: #3cc0ff;
+}
+
