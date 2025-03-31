@@ -17,7 +17,7 @@
 
 		} else {
 
-		$login = "SELECT username, password FROM users WHERE username = :username";
+		$login = "SELECT username, password, user_id FROM users WHERE username = :username";
 		$statement = $db->prepare($login);
 		$statement->bindValue(':username', $user);
 		$statement->execute();
@@ -29,10 +29,9 @@
 				$hash = password_hash($pass, PASSWORD_DEFAULT);
 
 				if(password_verify($pass, $hash)){
+					$_SESSION['username'] = $row['username'];
+					$_SESSION['user_id'] = $row['user_id'];
 
-					$session = $_SESSION['username'];
-
-					setcookie('username', $session, time() + 300);
 					$message = "Login Successful!";
 
 					header("Location: insert.php");

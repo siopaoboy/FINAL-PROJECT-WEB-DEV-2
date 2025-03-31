@@ -23,11 +23,11 @@
 	align-items: center;
 }
 
-/*.nav li:first-child {
+.nav li:first-child {
 	margin-right: auto;
-}*/
+}
 
 .nav a:hover {
-	background: #3cc0ff;
+	background: white;
 }
 

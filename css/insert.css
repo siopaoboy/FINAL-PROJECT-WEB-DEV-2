@@ -1,13 +1,13 @@
-.index {
-	background-color: #ebd6ef;
+.insert {
+	background-color: #3cc0ff;
 }
 
-.index h1 {
+.insert nav{
 	text-align: center;
 
 }
 
-#manga p {
+.manga h3 {
 	color: white;
 }
 
