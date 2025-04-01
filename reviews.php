@@ -34,7 +34,8 @@
     <script src="/WEBD2/PROJECT-WEB-DEV-2/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
       tinymce.init({
-        selector: '#mytextarea'
+        selector: '#mytextarea',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
       });
     </script>
 </head>
