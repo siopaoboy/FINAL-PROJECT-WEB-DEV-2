@@ -22,7 +22,7 @@
         
         	try {
         		$statement->execute();
-        		$message = "Registration successful!";
+        		$message = "Registration successful! You can now login to your registered account.";
         	} catch (PDOException $e) {
         		$message = "Error: cannot register your account " . $e -> getMessage();
         	}
@@ -43,25 +43,28 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/register.css">
+
 	<title>Register Now!</title>
+	<link rel="stylesheet" type="text/css" href="css/register.css"
+	>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body>
-	<h1>Become a member of MANGAKOPIA today!</h1>
+<body class="register">
+	<h1>Become a member of MANGAKOPIA today!</h1> <br>
  
 	<p><?= $message ?></p>
 
 	<form method="POST" action="register.php">
 		<label for="usernameRegister">Username:</label>
-		<input type="text" name="usernameRegister"> <br> <br>
+		<input class="form-control" type="text" name="usernameRegister"> <br>
 
 		<label for="passwordRegister">Password:</label>
-		<input type="password" name="passwordRegister"> <br> <br>
+		<input class="form-control" type="password" name="passwordRegister"> <br>
 
 		<label for="reenter">Re-Enter Password:</label>
-		<input type="password" name="passwordConfirmation"> <br> <br>
+		<input class="form-control" type="password" name="passwordConfirmation"> <br> 
 
-		<button name="register" type="submit">Register</button> 
+		<button class="btn btn-primary" name="register" type="submit">Register</button> 
 	</form> <br>
 
 	<p><strong> Already a member? </strong><p> <a href="login.php">Login Here!</a>

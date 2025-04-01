@@ -69,8 +69,9 @@
 		<input type="password" name="password"> <br> <br>
 
 		<button name="login" type="submit">Sign In</button>
-	</form>
+	</form> <br>
 
-	<p> <a href="admin.php">Register as admin</a>
+	<a href="admin.php">Register as admin</a> <br> <br>
+	<a href="insert.php">Return to main page</a>
 </body>
 </html>

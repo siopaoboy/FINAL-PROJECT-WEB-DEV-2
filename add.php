@@ -1,5 +1,5 @@
 <?php
-	
+
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +16,13 @@
 
 	<form method="POST" action="">
 		<label for="name">Name:</label>
-		<input class="form-control" type="text" name="name" value="<?php echo $_POST['name']; ?>" placeholder="Add a name"> <br> 
+		<input class="form-control" type="text" name="name" placeholder="Add a name"> <br> 
 
 		<label for="title">Title:</label> 
-		<input class="form-control" type="text" name="title" value="<?php echo $_POST['title']; ?>" placeholder="Add a title"> <br>
+		<input class="form-control" type="text" name="title" placeholder="Add a title"> <br>
 
 		<label for="content">Content:</label>
-		<textarea class="form-control" rows="8" name="content" value="<?php echo $_POST['content']; ?>" placeholder="Add content to your page"></textarea> <br>
+		<textarea class="form-control" rows="8" name="content" placeholder="Add content to your page"></textarea> <br>
 
 		<button class="btn btn-primary" name="submit" type="submit">Create Page</button>
 	</form>

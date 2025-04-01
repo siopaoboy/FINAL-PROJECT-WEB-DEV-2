@@ -8,7 +8,7 @@
 </head>
 <body class="body">
 	<h1>MANGAKOPIA</h1> <br>
-	<nav = class="nav">
+	<nav class="nav">
 		<ul>
 			<li><a href="insert.php">Home</a></li>
 			<li><a href="orders.php">Order</a></li>
