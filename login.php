@@ -38,7 +38,7 @@
 					exit();
 
 				} else {
-					$message = "Wrong password";
+					$message = "Wrong password. Try Again.";
 				}
 
 			} else {
@@ -73,6 +73,7 @@
 		<button class="btn btn-primary" name="login" type="submit">Sign In</button> <br> <br>
 	</form>
 
-	<p><strong>Not a member yet? </strong><p> <a href="register.php">Register Here!</a>
+	<p><strong>Not a member yet? </strong><p> <a href="register.php">Register Here!</a> <br> <br>
+	<a href="insert.php">Back to Home</a>
 </body>
 </html>

@@ -1,12 +1,14 @@
 <?php    
     require('connect.php');
+    require('nav.php');
 
     session_start();
 
     if ($_POST && !empty($_POST['title']) && !empty($_POST['content'])) {
 
         $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        // $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $content = $_POST['content'];
         
         $query = "INSERT INTO reviews (user_id, title, content) VALUES (:user_id, :title, :content)";
         $statement = $db->prepare($query);
@@ -40,7 +42,7 @@
     </script>
 </head>
 
-<body>
+<body class="reviews">
     <h2>My Review</h2> <br>
     <form method="post" action="reviews.php">
         <h5><label for="title">Title:</label></h5>

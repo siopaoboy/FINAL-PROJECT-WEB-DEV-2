@@ -22,7 +22,7 @@
         
         	try {
         		$statement->execute();
-        		$message = "Registration successful! You can now login to your registered account.";
+        		$message = "Registration successful!";
         	} catch (PDOException $e) {
         		$message = "Error: cannot register your account " . $e -> getMessage();
         	}

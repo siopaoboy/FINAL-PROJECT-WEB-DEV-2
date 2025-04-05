@@ -1,21 +1,29 @@
+@font-face {
+	font-family: 'manga';
+	src: url(fonts/Manga.otf);
+}
+
 .body {
-	background: #ebd6ef;
+	background: #5ecbff;
 }
 
 .body h1 {
-	text-align: center;
-	font-family: cool;
+	font-family: manga;
 }
 
-.nav ul{
+.body a {
+	text-decoration: none;
+}
+
+#nav ul {
 	list-style-type: none;
 }
 
-.nav li {
+#nav li {
 	display: inline-block;
 }
 
-.nav li a {
+#nav li a {
 	color: black;
 	padding: 0 30px;
 	text-duration: none;
@@ -23,11 +31,11 @@
 	align-items: center;
 }
 
-.nav li:first-child {
+#nav li:first-child {
 	margin-right: auto;
 }
 
-.nav a:hover {
-	background: white;
+#nav a:hover {
+	background: lightskyblue;
 }
 

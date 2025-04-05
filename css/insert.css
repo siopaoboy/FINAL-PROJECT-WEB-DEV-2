@@ -1,5 +1,6 @@
 @font-face {
-	font
+	font-family: 'manga';
+	src: url(fonts/Manga.otf);
 }
 
 .insert {
@@ -11,8 +12,17 @@
 
 }
 
+.manga h2 {
+	text-align: center;
+	font-family: 'manga';
+}
+
 .manga h3 {
 	color: white;
+}
+
+.review ul {
+	list-style-type: none;
 }
 
 
