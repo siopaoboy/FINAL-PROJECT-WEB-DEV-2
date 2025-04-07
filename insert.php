@@ -2,6 +2,9 @@
 
 	require('connect.php');
 
+	session_start();
+	error_reporting(0);
+
 	$review = "SELECT review_id, u.user_id, title, content, updated_at, u.username FROM reviews AS r JOIN users AS u ON u.user_id = r.user_id ORDER BY updated_at DESC";
 
 	$statement = $db->prepare($review);
@@ -24,10 +27,29 @@
 
 </head>
 <body class="insert">
-	
-	<a href="login.php">Login </a> <br>
+	<?php
+	 if($_SESSION['username']) {
+
+	?>
+	<p>Welcome <?= $_SESSION['username'] ?></p>
 	<a href="logout.php">Logout</a> <br>
+	
+	<?php
+
+	}
+
+	else {
+
+	?>
+
+	<a href="login.php">Login </a> <br>
 	<a href="register.php">Become a MANGAKOPIA Member!</a> <br>
+
+	<?php
+
+	}
+
+	?>
 
 	<?= include('nav.php'); ?> <br>
 
@@ -51,6 +73,8 @@
 
         		<?php endwhile?> <br>
     		</ul> 
+
+    		<h6> Have something to say about our shop? Write your review <a href="reviews.php">here</a>
     	</div> 
     </div>
 </body>
