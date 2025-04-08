@@ -31,8 +31,8 @@
 	 if($_SESSION['username']) {
 
 	?>
-	<p>Welcome <?= $_SESSION['username'] ?></p>
-	<a href="logout.php">Logout</a> <br>
+	<p>Welcome back <b><?= $_SESSION['username'] ?></b>!</p>
+	<a href="logout.php" onclick="return confirm('Are you sure you want to logout from your account?')">Logout</a> <br>
 	
 	<?php
 
@@ -69,7 +69,8 @@
             	<li><h4><b><?= $row['title'] ?></b></h4></li>
             	<li><?= $row['content'] ?></li>
             	<li><p>Updated: <?= date("F d, Y h:i a", strtotime($row['updated_at'])) ?><p></li>
-            	<a href="reviewEdit.php?id=<?= $row['review_id'] ?>">Edit</a> <br>
+            	<a href="reviewEdit.php?id=<?= $row['review_id'] ?>">Edit</a>
+            	<a href="reviewDelete.php?id=<?= $row['review_id'] ?>">Delete</a> <br> <br>
 
         		<?php endwhile?> <br>
     		</ul> 
