@@ -1,5 +1,38 @@
 <?php
+	
+	require('connect.php');
 
+	  session_start();
+    $message = "";
+
+    if ($_POST && !empty($_POST['title']) && !empty($_POST['content'])) {
+
+        $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $content = $_POST['content'];
+
+        if (empty($_SESSION['username']) || empty($_SESSION['admin_id'])) {
+
+            $message = "You must be logged in.";
+
+        } else {
+
+        $query = "INSERT INTO pages (admin_id, title, content) VALUES (:admin_id, :title, :content)";
+        $statement = $db->prepare($query);
+        
+        $statement->bindValue(':admin_id', $_SESSION['admin_id']);
+        $statement->bindValue(':title', $title);
+        $statement->bindValue(':content', $content);
+        
+        $statement->execute();
+
+        $message = "Page has been created";
+        }
+
+    } else {
+
+        $message = "Either title or content is left empty. Type something down on both fields.";
+
+    }
 ?>
 
 <!DOCTYPE html>
@@ -20,17 +53,18 @@
 <body>
 	<h2>Add Page</h2> <br>
 
-	<form method="POST" action="">
-		<label for="name">Name:</label>
-		<input class="form-control" type="text" name="name" placeholder="Add a name"> <br> 
+	<p><?= $message ?></p>
 
+	<form method="POST" action="add.php">
 		<label for="title">Title:</label> 
 		<input class="form-control" type="text" name="title" placeholder="Add a title"> <br>
 
 		<label for="content">Content:</label>
 		<textarea id="mytextarea" rows="8" name="content" placeholder="Add content to your page"></textarea> <br>
 
-		<button class="btn btn-primary" name="submit" type="submit">Create Page</button>
+		<button class="btn btn-primary" name="submit" type="submit">Create Page</button> <br> 
+
+		<a href="pages.php">Back</a>
 	</form>
 
 </body>
