@@ -22,6 +22,9 @@
         $statement->bindValue(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
         $statement->execute();
 
+        header("location: index.php");
+        exit();
+
         if ($statement->rowCount() > 0) {
         	$message = "Review has been deleted.";
         }
@@ -30,16 +33,3 @@
     	$message = "Review is not detected.";
     }
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Deleted</title>
-</head>
-<body>
-	<?= $message ?> <br>
-	<a href="index.php">Back to Home</a>
-</body>
-</html>

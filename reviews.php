@@ -11,12 +11,15 @@
         $content = $_POST['content'];
 
         if (empty($_SESSION['username'])) {
-            $message = "Please login to submit a review.";
+
+            $message = "You must be logged in to submit a review.";
+
         } else {
+
         $query = "INSERT INTO reviews (user_id, title, content) VALUES (:user_id, :title, :content)";
         $statement = $db->prepare($query);
         
-        $statement->bindValue('user_id', $_SESSION['user_id']);
+        $statement->bindValue(':user_id', $_SESSION['user_id']);
         $statement->bindValue(':title', $title);
         $statement->bindValue(':content', $content);
         
@@ -26,7 +29,9 @@
         }
 
     } else {
+
         $message = "Either title or review is left empty. Type something down on both fields";
+
     }
 ?>
 
@@ -61,7 +66,9 @@
         <input class="btn btn-primary" type="submit" value="Post Review">
     </form> <br>
 
-    <a href="insert.php">Back to Home</a> 
+    <a href="index.php">Back to Home</a> <br> <br>
+
+    <p>Make sure to <a href="login.php"><b>login</b></a> so that you can post a review on our site!</p> 
 
 </body>
 </html>

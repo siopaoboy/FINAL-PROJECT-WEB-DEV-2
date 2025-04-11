@@ -8,11 +8,17 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Add Page</title>
+	<title>Edit Page</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="/WEBD2/PROJECT-WEB-DEV-2/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+    </script>
 </head>
 <body>
-	<h2>Add Page</h2> <br>
+	<h2>Edit Page</h2> <br>
 
 	<form method="POST" action="">
 		<label for="name">Name:</label>
@@ -22,7 +28,7 @@
 		<input class="form-control" type="text" name="title" value="<?php echo $_POST['title']; ?>" placeholder="Add a title"> <br>
 
 		<label for="content">Content:</label>
-		<textarea class="form-control" rows="8" name="content" value="<?php echo $_POST['content']; ?>" placeholder="Add content to your page"></textarea> <br>
+		<textarea id="mytextarea"> class="form-control" rows="8" name="content" value="<?php echo $_POST['content']; ?>" placeholder="Add content to your page"></textarea> <br>
 
 		<button class="btn btn-primary" name="submit" type="submit">Create Page</button>
 	</form>

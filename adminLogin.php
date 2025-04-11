@@ -17,7 +17,7 @@
 
 		} else {
 
-		$login = "SELECT username, password FROM admin WHERE username = :username";
+		$login = "SELECT username, password, admin_id FROM admin WHERE username = :username";
 		$statement = $db->prepare($login);
 		$statement->bindValue(':username', $user);
 		$statement->execute();
@@ -30,12 +30,10 @@
 
 				if(password_verify($pass, $hash)){
 
-					$session = $_SESSION['username'];
+					$_SESSION['username'] = $row['username'];
+					$_SESSION['admin_id'] = $row['admin_id'];
 
-					setcookie('username', $session, time() + 300);
-					$message = "Login Successful!";
-
-					header("Location: insert.php");
+					header("Location: pages.php");
 					exit();
 
 				} else {
@@ -72,6 +70,6 @@
 	</form> <br>
 
 	<a href="admin.php">Register as admin</a> <br> <br>
-	<a href="insert.php">Return to main page</a>
+	<a href="index.php">Return to main page</a>
 </body>
 </html>

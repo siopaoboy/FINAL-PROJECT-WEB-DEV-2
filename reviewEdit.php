@@ -82,10 +82,10 @@
         <input type="hidden" name="review_id" value="<?= $update['review_id'] ?>">
 
         <label for="title">Title:</label>
-        <input type="text" name="title" placeholder="<?= $update['title'] ?>"> <br> <br>
+        <input type="text" name="title" value="<?= $update['title'] ?>"> <br> <br>
 
         <label for="content">Content:</label> <br>
-        <textarea id="mytextarea" name="content" rows="5" cols="50" placeholder="<?= $update['content'] ?>"></textarea> <br> <br>
+        <textarea id="mytextarea" name="content" rows="5" cols="50"><?= $update['content'] ?></textarea> <br> <br>
 
         <input class="btn btn-primary" type="submit" name="update" value="Update"/> <br> <br>
         <a href="index.php">Back to Home</a>

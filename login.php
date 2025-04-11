@@ -32,9 +32,7 @@
 					$_SESSION['username'] = $row['username'];
 					$_SESSION['user_id'] = $row['user_id'];
 
-					$message = "Login Successful!";
-
-					header("Location: insert.php");
+					header("Location: index.php");
 					exit();
 
 				} else {
@@ -74,6 +72,6 @@
 	</form>
 
 	<p><strong>Not a member yet? </strong><p> <a href="register.php">Register Here!</a> <br> <br>
-	<a href="insert.php">Back to Home</a>
+	<a href="index.php">Back to Home</a>
 </body>
 </html>
